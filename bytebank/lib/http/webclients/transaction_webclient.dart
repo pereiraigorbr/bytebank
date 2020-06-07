@@ -25,8 +25,15 @@ class TransactionWebclient {
         },
         body: transactionJson);
 
-    return Transaction.fromJson(jsonDecode(response.body));
+    if (response.statusCode == 200) {
+      return Transaction.fromJson(jsonDecode(response.body));
+    }
+
+    _throwHttpError(response.statusCode);
   }
+
+  void _throwHttpError(int statusCode) =>
+      throw Exception(_statusCodeResponses[statusCode]);
 
   Map<String, dynamic> _toMap(Transaction transaction) {
     final Map<String, dynamic> transactionMap = {
@@ -38,4 +45,9 @@ class TransactionWebclient {
     };
     return transactionMap;
   }
+
+  static final Map<int, String> _statusCodeResponses = {
+    400: 'Ocorreu um erro ao tentar realizar a transferência!',
+    401: 'A senha digitada é inválida'
+  };
 }
