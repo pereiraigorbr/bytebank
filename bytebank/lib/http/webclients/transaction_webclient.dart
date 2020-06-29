@@ -13,9 +13,9 @@ class TransactionWebclient {
   }
 
   Future<Transaction> save(Transaction transaction, String password) async {
-    Map<String, dynamic> transactionMap = _toMap(transaction);
+    final String transactionJson = jsonEncode(transaction.toJson());
 
-    final String transactionJson = jsonEncode(transactionMap);
+    await Future.delayed(Duration(seconds: 10));
 
     final Response response = await client.post(
       baseUrl,
@@ -30,23 +30,20 @@ class TransactionWebclient {
       return Transaction.fromJson(jsonDecode(response.body));
     }
 
-    throw HttpException(_statusCodeResponses[response.statusCode]);
+    throw HttpException(_getMessage(response.statusCode));
   }
 
-  Map<String, dynamic> _toMap(Transaction transaction) {
-    final Map<String, dynamic> transactionMap = {
-      'value': transaction.value,
-      'contact': {
-        'name': transaction.contact.name,
-        'accountNumber': transaction.contact.accountNumber,
-      }
-    };
-    return transactionMap;
+  String _getMessage(int statusCode) {
+    if (_statusCodeResponses.containsKey(statusCode)) {
+      return _statusCodeResponses[statusCode];
+    }
+    return 'Unknown error';
   }
 
   static final Map<int, String> _statusCodeResponses = {
     400: 'Ocorreu um erro ao tentar realizar a transferência!',
-    401: 'A senha digitada é inválida'
+    401: 'A senha digitada é inválida',
+    409: 'Essa transação já existe',
   };
 }
 
