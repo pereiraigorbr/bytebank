@@ -9,37 +9,44 @@ class Dashboard extends StatelessWidget {
       appBar: AppBar(
         title: Text('Dashboad'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset('images/bytebank_logo.png'),
-          ),
-          Container(
-            height: 120,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
+      body: LayoutBuilder(
+        builder: (context, constraints) => SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: constraints.maxHeight),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                FeatureItem(
-                  'Transferência',
-                  Icons.monetization_on,
-                  onClick: () {
-                    _showContacstList(context);
-                  },
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset('images/bytebank_logo.png'),
                 ),
-                FeatureItem(
-                  'Extrato da conta',
-                  Icons.description,
-                  onClick: () {
-                    _showTransactionList(context);
-                  },
+                Container(
+                  height: 120,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      FeatureItem(
+                        'Transferência',
+                        Icons.monetization_on,
+                        onClick: () {
+                          _showContacstList(context);
+                        },
+                      ),
+                      FeatureItem(
+                        'Extrato da conta',
+                        Icons.description,
+                        onClick: () {
+                          _showTransactionList(context);
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
