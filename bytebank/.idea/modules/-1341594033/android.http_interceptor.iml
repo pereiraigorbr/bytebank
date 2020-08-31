@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="ExternalSystem" externalSystem="GRADLE" externalSystemModuleGroup="codingalecr.http_interceptor" externalSystemModuleVersion="1.0-SNAPSHOT" linkedProjectId=":http_interceptor" linkedProjectPath="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/http_interceptor-0.1.1/android" rootProjectPath="$MODULE_DIR$/../../../android" />
+  <component name="FacetManager">
+    <facet type="android-gradle" name="Android-Gradle">
+      <configuration>
+        <option name="GRADLE_PROJECT_PATH" value=":http_interceptor" />
+        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" />
+        <option name="LAST_KNOWN_AGP_VERSION" value="3.5.0" />
+      </configuration>
+    </facet>
+  </component>
+</module>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="ExternalSystem" externalSystem="GRADLE" externalSystemModuleGroup="com.tekartik.sqflite" externalSystemModuleVersion="1.0-SNAPSHOT" linkedProjectId=":sqflite" linkedProjectPath="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/sqflite-1.3.0/android" rootProjectPath="$MODULE_DIR$/../../../android" />
+  <component name="FacetManager">
+    <facet type="android-gradle" name="Android-Gradle">
+      <configuration>
+        <option name="GRADLE_PROJECT_PATH" value=":sqflite" />
+        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" />
+        <option name="LAST_KNOWN_AGP_VERSION" value="3.5.0" />
+      </configuration>
+    </facet>
+  </component>
+</module>
