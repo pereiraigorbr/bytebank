@@ -3,7 +3,7 @@ import 'package:bytebank/http/webclient.dart';
 import 'package:bytebank/models/transaction.dart';
 import 'package:http/http.dart';
 
-class TransactionWebclient {
+class TransactionWebClient {
   Future<List<Transaction>> findAll() async {
     final Response response = await client.get(baseUrl);
     final List<dynamic> decodedJson = jsonDecode(response.body);
